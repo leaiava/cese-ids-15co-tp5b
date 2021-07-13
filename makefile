@@ -9,6 +9,9 @@ OBJ_FILES = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC_FILES))
 all: build_folders $(OBJ_FILES)
 	@echo Building aplication
 	@gcc $(OBJ_FILES) -o $(BIN_DIR)/app.out
+	
+doc: $(OUT_DIR)
+	@doxygen
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo Compiling source file $(notdir $(basename $<))
